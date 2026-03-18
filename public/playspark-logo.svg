@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Background -->
+  <rect width="200" height="200" rx="44" fill="#1a1a2e"/>
+
+  <!-- LEFT HEMISPHERE — digital/grid (logic, structure) -->
+  <g opacity="0.95">
+    <!-- Brain left lobe outline -->
+    <path d="M100 52 C88 42 68 38 54 48 C40 58 34 74 36 88 C34 100 38 112 48 118 C52 130 56 142 68 148 C76 152 88 150 100 148"
+      stroke="white" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+
+    <!-- Grid lines - horizontal -->
+    <line x1="44" y1="72" x2="96" y2="72" stroke="white" stroke-width="0.8" opacity="0.4"/>
+    <line x1="38" y1="88" x2="97" y2="88" stroke="white" stroke-width="0.8" opacity="0.4"/>
+    <line x1="40" y1="104" x2="97" y2="104" stroke="white" stroke-width="0.8" opacity="0.4"/>
+    <line x1="46" y1="120" x2="97" y2="120" stroke="white" stroke-width="0.8" opacity="0.4"/>
+    <line x1="56" y1="136" x2="97" y2="136" stroke="white" stroke-width="0.8" opacity="0.4"/>
+
+    <!-- Grid lines - vertical -->
+    <line x1="58" y1="48" x2="58" y2="148" stroke="white" stroke-width="0.8" opacity="0.4"/>
+    <line x1="74" y1="42" x2="74" y2="148" stroke="white" stroke-width="0.8" opacity="0.4"/>
+    <line x1="90" y1="44" x2="90" y2="148" stroke="white" stroke-width="0.8" opacity="0.4"/>
+
+    <!-- Circuit nodes (dots) -->
+    <circle cx="58" cy="72" r="2.8" fill="white"/>
+    <circle cx="74" cy="72" r="2.8" fill="white"/>
+    <circle cx="90" cy="72" r="2.8" fill="white"/>
+    <circle cx="58" cy="88" r="2.8" fill="white"/>
+    <circle cx="74" cy="88" r="2.8" fill="white"/>
+    <circle cx="90" cy="88" r="2.8" fill="white"/>
+    <circle cx="58" cy="104" r="2.8" fill="white"/>
+    <circle cx="74" cy="104" r="2.8" fill="white"/>
+    <circle cx="90" cy="104" r="2.8" fill="white"/>
+    <circle cx="58" cy="120" r="2.8" fill="white"/>
+    <circle cx="74" cy="120" r="2.8" fill="white"/>
+    <circle cx="90" cy="120" r="2.8" fill="white"/>
+    <circle cx="68" cy="136" r="2.8" fill="white"/>
+    <circle cx="84" cy="136" r="2.8" fill="white"/>
+
+    <!-- Accent connection lines (circuit feel) -->
+    <polyline points="58,88 74,72 90,88 74,104 58,88" stroke="white" stroke-width="1.2" opacity="0.7" fill="none"/>
+  </g>
+
+  <!-- Center dividing line (corpus callosum) -->
+  <line x1="100" y1="50" x2="100" y2="150" stroke="white" stroke-width="1.5" opacity="0.5" stroke-dasharray="4 3"/>
+
+  <!-- RIGHT HEMISPHERE — organic/play (creativity, childhood) -->
+  <g opacity="0.95">
+    <!-- Brain right lobe outline -->
+    <path d="M100 52 C112 42 132 38 146 48 C160 58 166 74 164 88 C166 100 162 112 152 118 C148 130 144 142 132 148 C124 152 112 150 100 148"
+      stroke="white" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+
+    <!-- Organic swirl / creative spiral -->
+    <path d="M130 90 C130 78 122 70 112 72 C104 74 100 82 102 90 C104 98 112 102 120 100 C128 98 132 92 130 86"
+      stroke="white" stroke-width="1.8" opacity="0.8" fill="none" stroke-linecap="round"/>
+
+    <!-- Puzzle piece (top right area) -->
+    <g transform="translate(136, 62)">
+      <path d="M0 0 L10 0 L10 4 C10 4 12 2 14 4 C16 6 14 8 14 8 L10 8 L10 12 L0 12 L0 8 L-4 8 C-4 8 -6 6 -4 4 C-2 2 0 4 0 4 Z"
+        stroke="white" stroke-width="1.5" fill="none" opacity="0.85" stroke-linejoin="round"/>
+    </g>
+
+    <!-- Ball / circle (playful element) -->
+    <circle cx="148" cy="118" r="8" stroke="white" stroke-width="1.8" fill="none" opacity="0.7"/>
+    <path d="M141 115 C144 113 152 113 155 115" stroke="white" stroke-width="1.2" opacity="0.5" stroke-linecap="round"/>
+    <path d="M140 120 C143 118 153 118 156 120" stroke="white" stroke-width="1.2" opacity="0.5" stroke-linecap="round"/>
+
+    <!-- Star / spark (top area) -->
+    <path d="M120 58 L121.5 62 L126 62 L122.5 64.5 L124 68.5 L120 66 L116 68.5 L117.5 64.5 L114 62 L118.5 62 Z"
+      fill="white" opacity="0.9"/>
+
+    <!-- Wavy line (organic motion) -->
+    <path d="M106 134 C110 130 114 138 118 134 C122 130 126 138 130 134"
+      stroke="white" stroke-width="1.8" fill="none" opacity="0.6" stroke-linecap="round"/>
+  </g>
+</svg>
