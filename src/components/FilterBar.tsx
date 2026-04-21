@@ -9,42 +9,45 @@ import {
 import { TypeIcon, PlaceIcon } from "./TypeIcons";
 
 interface FilterBarProps {
-  typeFilter: string;
-  placeFilter: string;
-  compFilter: string;
-  topicFilter: string;
-  ageFilter: string;
-  moodFilter: string;
-  methodFilter: string;
-  prepFilter: string;
-  onTypeChange: (v: string) => void;
-  onPlaceChange: (v: string) => void;
-  onCompChange: (v: string) => void;
-  onTopicChange: (v: string) => void;
-  onAgeChange: (v: string) => void;
-  onMoodChange: (v: string) => void;
-  onMethodChange: (v: string) => void;
-  onPrepChange: (v: string) => void;
+  typeFilters: string[];
+  placeFilters: string[];
+  compFilters: string[];
+  topicFilters: string[];
+  ageFilters: string[];
+  moodFilters: string[];
+  methodFilters: string[];
+  prepFilters: string[];
+  onTypeChange: (v: string[]) => void;
+  onPlaceChange: (v: string[]) => void;
+  onCompChange: (v: string[]) => void;
+  onTopicChange: (v: string[]) => void;
+  onAgeChange: (v: string[]) => void;
+  onMoodChange: (v: string[]) => void;
+  onMethodChange: (v: string[]) => void;
+  onPrepChange: (v: string[]) => void;
   darkMode: boolean;
   activities: Activity[];
+}
+
+function toggle(arr: string[], val: string): string[] {
+  return arr.includes(val) ? arr.filter((v) => v !== val) : [...arr, val];
 }
 
 export function FilterBar(props: FilterBarProps) {
   const [collapsed, setCollapsed] = useState(true);
 
   const hasFilters =
-    props.typeFilter !== "wszystkie" || props.placeFilter !== "wszystkie" ||
-    props.compFilter !== "wszystkie" || props.topicFilter !== "wszystkie" ||
-    props.ageFilter !== "wszystkie" || props.moodFilter !== "wszystkie" ||
-    props.methodFilter !== "wszystkie" || props.prepFilter !== "wszystkie";
+    props.typeFilters.length > 0 || props.placeFilters.length > 0 ||
+    props.compFilters.length > 0 || props.topicFilters.length > 0 ||
+    props.ageFilters.length > 0 || props.moodFilters.length > 0 ||
+    props.methodFilters.length > 0 || props.prepFilters.length > 0;
 
   const activeCount = [
-    props.typeFilter, props.placeFilter, props.compFilter,
-    props.topicFilter, props.ageFilter, props.moodFilter,
-    props.methodFilter, props.prepFilter,
-  ].filter((f) => f !== "wszystkie").length;
+    props.typeFilters, props.placeFilters, props.compFilters,
+    props.topicFilters, props.ageFilters, props.moodFilters,
+    props.methodFilters, props.prepFilters,
+  ].filter((f) => f.length > 0).length;
 
-  // Count activities per filter value
   const counts = useMemo(() => {
     const c = {
       type: {} as Record<string, number>,
@@ -65,10 +68,10 @@ export function FilterBar(props: FilterBarProps) {
   }, [props.activities]);
 
   const resetAll = () => {
-    props.onTypeChange("wszystkie"); props.onPlaceChange("wszystkie");
-    props.onCompChange("wszystkie"); props.onTopicChange("wszystkie");
-    props.onAgeChange("wszystkie"); props.onMoodChange("wszystkie");
-    props.onMethodChange("wszystkie"); props.onPrepChange("wszystkie");
+    props.onTypeChange([]); props.onPlaceChange([]);
+    props.onCompChange([]); props.onTopicChange([]);
+    props.onAgeChange([]); props.onMoodChange([]);
+    props.onMethodChange([]); props.onPrepChange([]);
   };
 
   const dm = props.darkMode;
@@ -90,12 +93,15 @@ export function FilterBar(props: FilterBarProps) {
           {activeCount > 0 && (
             <span className="w-5 h-5 rounded-full bg-[#FF6B6B] text-white text-[10px] font-bold flex items-center justify-center">{activeCount}</span>
           )}
+          {!collapsed && hasFilters && (
+            <span className={`text-[11px] ${dm ? "text-gray-500" : "text-gray-400"}`}>— kliknij kilka filtrów naraz</span>
+          )}
         </div>
         <div className="flex items-center gap-2">
           {hasFilters && (
             <button onClick={(e) => { e.stopPropagation(); resetAll(); }}
               className="text-xs text-[#FF6B6B] font-bold flex items-center gap-1 bg-transparent border-none cursor-pointer hover:underline">
-              <X size={12} /> Resetuj
+              <X size={12} /> Wyczyść filtry
             </button>
           )}
           {collapsed ? <ChevronDown size={16} className={dm ? "text-gray-500" : "text-gray-400"} /> : <ChevronUp size={16} className={dm ? "text-gray-500" : "text-gray-400"} />}
@@ -107,9 +113,9 @@ export function FilterBar(props: FilterBarProps) {
           {/* Age */}
           <FilterSection label="Wiek dziecka" darkMode={dm}>
             <div className="flex gap-1.5 flex-wrap">
-              <Pill active={props.ageFilter === "wszystkie"} onClick={() => props.onAgeChange("wszystkie")} color="#888" darkMode={dm}>wszystkie</Pill>
+              <Pill active={props.ageFilters.length === 0} onClick={() => props.onAgeChange([])} color="#888" darkMode={dm}>wszystkie</Pill>
               {ALL_AGES.map((yr) => (
-                <Pill key={yr} active={props.ageFilter === String(yr)} onClick={() => props.onAgeChange(String(yr))} color={AGE_COLORS[yr]} darkMode={dm}>
+                <Pill key={yr} active={props.ageFilters.includes(String(yr))} onClick={() => props.onAgeChange(toggle(props.ageFilters, String(yr)))} color={AGE_COLORS[yr]} darkMode={dm}>
                   {yr} lat <span className="pill-count">{counts.age[String(yr)] || 0}</span>
                 </Pill>
               ))}
@@ -119,9 +125,9 @@ export function FilterBar(props: FilterBarProps) {
           {/* Mood */}
           <FilterSection label="Nastrój / emocje" darkMode={dm}>
             <div className="flex gap-1.5 flex-wrap">
-              <Pill active={props.moodFilter === "wszystkie"} onClick={() => props.onMoodChange("wszystkie")} color="#F59E0B" darkMode={dm}>wszystkie</Pill>
+              <Pill active={props.moodFilters.length === 0} onClick={() => props.onMoodChange([])} color="#F59E0B" darkMode={dm}>wszystkie</Pill>
               {MOOD_FILTERS.map((m) => (
-                <Pill key={m.id} active={props.moodFilter === m.id} onClick={() => props.onMoodChange(m.id)} color="#F59E0B" darkMode={dm}>
+                <Pill key={m.id} active={props.moodFilters.includes(m.id)} onClick={() => props.onMoodChange(toggle(props.moodFilters, m.id))} color="#F59E0B" darkMode={dm}>
                   <span className="text-[11px] mr-0.5">{MOOD_ICONS[m.id]}</span> {m.label}
                 </Pill>
               ))}
@@ -131,12 +137,13 @@ export function FilterBar(props: FilterBarProps) {
           {/* Type */}
           <FilterSection label="Typ zabawy" darkMode={dm}>
             <div className="flex gap-1.5 flex-wrap">
-              <Pill active={props.typeFilter === "wszystkie"} onClick={() => props.onTypeChange("wszystkie")} color="#888" darkMode={dm}>wszystkie</Pill>
+              <Pill active={props.typeFilters.length === 0} onClick={() => props.onTypeChange([])} color="#888" darkMode={dm}>wszystkie</Pill>
               {ALL_TYPES.map((t) => {
                 const meta = TYPE_META[t as ActivityType];
+                const isActive = props.typeFilters.includes(t);
                 return (
-                  <Pill key={t} active={props.typeFilter === t} onClick={() => props.onTypeChange(t)} color={meta?.accent} darkMode={dm}>
-                    <TypeIcon type={t} size={14} color={props.typeFilter === t ? "white" : meta?.accent} />
+                  <Pill key={t} active={isActive} onClick={() => props.onTypeChange(toggle(props.typeFilters, t))} color={meta?.accent} darkMode={dm}>
+                    <TypeIcon type={t} size={14} color={isActive ? "white" : meta?.accent} />
                     <span className="ml-0.5">{t}</span>
                     <span className="pill-count">{counts.type[t] || 0}</span>
                   </Pill>
@@ -148,25 +155,28 @@ export function FilterBar(props: FilterBarProps) {
           {/* Place */}
           <FilterSection label="Miejsce" darkMode={dm}>
             <div className="flex gap-1.5 flex-wrap">
-              <Pill active={props.placeFilter === "wszystkie"} onClick={() => props.onPlaceChange("wszystkie")} color="#888" darkMode={dm}>wszystkie</Pill>
-              {ALL_PLACES.map((p) => (
-                <Pill key={p} active={props.placeFilter === p} onClick={() => props.onPlaceChange(p)} color="#555" darkMode={dm}>
-                  <PlaceIcon place={p} size={14} color={props.placeFilter === p ? "white" : dm ? "#888" : "#888"} />
-                  <span className="ml-0.5">{p}</span>
-                  <span className="pill-count">{counts.place[p] || 0}</span>
-                </Pill>
-              ))}
+              <Pill active={props.placeFilters.length === 0} onClick={() => props.onPlaceChange([])} color="#888" darkMode={dm}>wszystkie</Pill>
+              {ALL_PLACES.map((p) => {
+                const isActive = props.placeFilters.includes(p);
+                return (
+                  <Pill key={p} active={isActive} onClick={() => props.onPlaceChange(toggle(props.placeFilters, p))} color="#555" darkMode={dm}>
+                    <PlaceIcon place={p} size={14} color={isActive ? "white" : dm ? "#888" : "#888"} />
+                    <span className="ml-0.5">{p}</span>
+                    <span className="pill-count">{counts.place[p] || 0}</span>
+                  </Pill>
+                );
+              })}
             </div>
           </FilterSection>
 
-          {/* Method — NEW */}
+          {/* Method */}
           <FilterSection label="Metoda pedagogiczna" darkMode={dm}>
             <div className="flex gap-1.5 flex-wrap">
-              <Pill active={props.methodFilter === "wszystkie"} onClick={() => props.onMethodChange("wszystkie")} color="#888" darkMode={dm}>wszystkie</Pill>
+              <Pill active={props.methodFilters.length === 0} onClick={() => props.onMethodChange([])} color="#888" darkMode={dm}>wszystkie</Pill>
               {ALL_METHODS.map((m) => {
                 const meta = METHOD_META[m as Method];
                 return (
-                  <Pill key={m} active={props.methodFilter === m} onClick={() => props.onMethodChange(m)} color={meta?.color} darkMode={dm}>
+                  <Pill key={m} active={props.methodFilters.includes(m)} onClick={() => props.onMethodChange(toggle(props.methodFilters, m))} color={meta?.color} darkMode={dm}>
                     <Beaker size={12} className="mr-0.5" />
                     {meta?.label}
                     <span className="pill-count">{counts.method[m] || 0}</span>
@@ -176,15 +186,15 @@ export function FilterBar(props: FilterBarProps) {
             </div>
           </FilterSection>
 
-          {/* Prep — NEW */}
+          {/* Prep */}
           <FilterSection label="Przygotowanie" darkMode={dm}>
             <div className="flex gap-1.5 flex-wrap">
-              <Pill active={props.prepFilter === "wszystkie"} onClick={() => props.onPrepChange("wszystkie")} color="#888" darkMode={dm}>wszystkie</Pill>
-              <Pill active={props.prepFilter === "zero"} onClick={() => props.onPrepChange("zero")} color="#22C55E" darkMode={dm}>
+              <Pill active={props.prepFilters.length === 0} onClick={() => props.onPrepChange([])} color="#888" darkMode={dm}>wszystkie</Pill>
+              <Pill active={props.prepFilters.includes("zero")} onClick={() => props.onPrepChange(toggle(props.prepFilters, "zero"))} color="#22C55E" darkMode={dm}>
                 <span className="text-[11px] mr-0.5">✅</span> zero prep
                 <span className="pill-count">{counts.prep.zero}</span>
               </Pill>
-              <Pill active={props.prepFilter === "needed"} onClick={() => props.onPrepChange("needed")} color="#F59E0B" darkMode={dm}>
+              <Pill active={props.prepFilters.includes("needed")} onClick={() => props.onPrepChange(toggle(props.prepFilters, "needed"))} color="#F59E0B" darkMode={dm}>
                 <Package size={12} className="mr-0.5" /> wymaga prep
                 <span className="pill-count">{counts.prep.needed}</span>
               </Pill>
@@ -194,9 +204,9 @@ export function FilterBar(props: FilterBarProps) {
           {/* Competency */}
           <FilterSection label="Kompetencja" darkMode={dm}>
             <div className="flex gap-1.5 flex-wrap">
-              <Pill active={props.compFilter === "wszystkie"} onClick={() => props.onCompChange("wszystkie")} color="#6C63FF" darkMode={dm}>wszystkie</Pill>
+              <Pill active={props.compFilters.length === 0} onClick={() => props.onCompChange([])} color="#6C63FF" darkMode={dm}>wszystkie</Pill>
               {FILTER_COMPETENCIES.map((c) => (
-                <Pill key={c} active={props.compFilter === c} onClick={() => props.onCompChange(c)} color="#6C63FF" darkMode={dm}>{c}</Pill>
+                <Pill key={c} active={props.compFilters.includes(c)} onClick={() => props.onCompChange(toggle(props.compFilters, c))} color="#6C63FF" darkMode={dm}>{c}</Pill>
               ))}
             </div>
           </FilterSection>
@@ -204,9 +214,9 @@ export function FilterBar(props: FilterBarProps) {
           {/* Topic */}
           <FilterSection label="Temat" darkMode={dm}>
             <div className="flex gap-1.5 flex-wrap">
-              <Pill active={props.topicFilter === "wszystkie"} onClick={() => props.onTopicChange("wszystkie")} color="#22C55E" darkMode={dm}>wszystkie</Pill>
+              <Pill active={props.topicFilters.length === 0} onClick={() => props.onTopicChange([])} color="#22C55E" darkMode={dm}>wszystkie</Pill>
               {FILTER_TOPICS.map((t) => (
-                <Pill key={t} active={props.topicFilter === t} onClick={() => props.onTopicChange(t)} color="#22C55E" darkMode={dm}>{t}</Pill>
+                <Pill key={t} active={props.topicFilters.includes(t)} onClick={() => props.onTopicChange(toggle(props.topicFilters, t))} color="#22C55E" darkMode={dm}>{t}</Pill>
               ))}
             </div>
           </FilterSection>

@@ -148,14 +148,14 @@ export default function App() {
   const [splashDone, setSplashDone] = useState(false);
   const [tab, setTab] = useState<Tab>("start");
   const activitiesRef = useRef<HTMLDivElement>(null);
-  const [typeFilter, setTypeFilter] = useState("wszystkie");
-  const [placeFilter, setPlaceFilter] = useState("wszystkie");
-  const [compFilter, setCompFilter] = useState("wszystkie");
-  const [topicFilter, setTopicFilter] = useState("wszystkie");
-  const [ageFilter, setAgeFilter] = useState("wszystkie");
-  const [moodFilter, setMoodFilter] = useState("wszystkie");
-  const [methodFilter, setMethodFilter] = useState("wszystkie");
-  const [prepFilter, setPrepFilter] = useState("wszystkie");
+  const [typeFilters, setTypeFilters] = useState<string[]>([]);
+  const [placeFilters, setPlaceFilters] = useState<string[]>([]);
+  const [compFilters, setCompFilters] = useState<string[]>([]);
+  const [topicFilters, setTopicFilters] = useState<string[]>([]);
+  const [ageFilters, setAgeFilters] = useState<string[]>([]);
+  const [moodFilters, setMoodFilters] = useState<string[]>([]);
+  const [methodFilters, setMethodFilters] = useState<string[]>([]);
+  const [prepFilters, setPrepFilters] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState<SortOption>("name");
   const [expanded, setExpanded] = useState<number | null>(null);
@@ -369,28 +369,30 @@ export default function App() {
   }, []);
 
   const { filtered, relaxedFilters } = useMemo(() => {
-    const applyFilters = (overrides: Partial<Record<string, string>> = {}) => {
-      const tf = overrides.type ?? typeFilter;
-      const pf = overrides.place ?? placeFilter;
-      const cf = overrides.comp ?? compFilter;
-      const tpf = overrides.topic ?? topicFilter;
-      const af = overrides.age ?? ageFilter;
-      const mf = overrides.mood ?? moodFilter;
-      const mtf = overrides.method ?? methodFilter;
-      const ppf = overrides.prep ?? prepFilter;
+    const applyFilters = (overrides: Partial<Record<string, string[]>> = {}) => {
+      const tf = overrides.type ?? typeFilters;
+      const pf = overrides.place ?? placeFilters;
+      const cf = overrides.comp ?? compFilters;
+      const tpf = overrides.topic ?? topicFilters;
+      const af = overrides.age ?? ageFilters;
+      const mf = overrides.mood ?? moodFilters;
+      const mtf = overrides.method ?? methodFilters;
+      const ppf = overrides.prep ?? prepFilters;
 
       return ACTIVITIES.filter((a) => {
         if (showFavoritesOnly && !favorites.includes(a.id)) return false;
         if (showCompletedOnly && !completed.includes(a.id)) return false;
-        if (tf !== "wszystkie" && a.type !== tf) return false;
-        if (pf !== "wszystkie" && !a.place.includes(pf as any)) return false;
-        if (cf !== "wszystkie" && !a.competencies.includes(cf)) return false;
-        if (tpf !== "wszystkie" && !a.topics.includes(tpf)) return false;
-        if (af !== "wszystkie" && !a.age.includes(Number(af))) return false;
-        if (mf !== "wszystkie" && !a.childNeeds.emotions.some((e) => e.toLowerCase().includes(mf.toLowerCase()))) return false;
-        if (mtf !== "wszystkie" && a.method !== mtf) return false;
-        if (ppf === "zero" && !(a.prep.length === 1 && a.prep[0] === "zero prep")) return false;
-        if (ppf === "needed" && a.prep.length === 1 && a.prep[0] === "zero prep") return false;
+        if (tf.length > 0 && !tf.includes(a.type)) return false;
+        if (pf.length > 0 && !pf.some((p) => a.place.includes(p as any))) return false;
+        if (cf.length > 0 && !cf.some((c) => a.competencies.includes(c))) return false;
+        if (tpf.length > 0 && !tpf.some((t) => a.topics.includes(t))) return false;
+        if (af.length > 0 && !af.some((age) => a.age.includes(Number(age)))) return false;
+        if (mf.length > 0 && !mf.some((m) => a.childNeeds.emotions.some((e) => e.toLowerCase().includes(m.toLowerCase())))) return false;
+        if (mtf.length > 0 && !mtf.includes(a.method)) return false;
+        if (ppf.length === 1) {
+          if (ppf[0] === "zero" && !(a.prep.length === 1 && a.prep[0] === "zero prep")) return false;
+          if (ppf[0] === "needed" && a.prep.length === 1 && a.prep[0] === "zero prep") return false;
+        }
         if (searchQuery.trim()) {
           const q = searchQuery.toLowerCase().trim();
           const searchable = [a.name, a.description, a.type, ...a.competencies, ...a.topics, a.method, ...a.phrases, a.tellChild, a.tip].join(" ").toLowerCase();
@@ -411,18 +413,18 @@ export default function App() {
       { key: "method", label: "metoda" }, { key: "place", label: "miejsce" },
       { key: "type", label: "typ" }, { key: "age", label: "wiek" },
     ];
-    const overrides: Record<string, string> = {};
+    const overrides: Record<string, string[]> = {};
     const relaxed: string[] = [];
 
     for (const { key, label } of relaxOrder) {
-      overrides[key] = "wszystkie";
+      overrides[key] = [];
       result = applyFilters(overrides);
       relaxed.push(label);
       if (result.length > 0) return { filtered: sortActivities(result, sortBy), relaxedFilters: relaxed };
     }
 
     return { filtered: sortActivities(ACTIVITIES, sortBy), relaxedFilters: ["wszystkie"] };
-  }, [typeFilter, placeFilter, compFilter, topicFilter, ageFilter, moodFilter, methodFilter, prepFilter, showFavoritesOnly, showCompletedOnly, favorites, completed, searchQuery, sortBy]);
+  }, [typeFilters, placeFilters, compFilters, topicFilters, ageFilters, moodFilters, methodFilters, prepFilters, showFavoritesOnly, showCompletedOnly, favorites, completed, searchQuery, sortBy]);
 
   const pickRandom = useCallback(() => {
     if (filtered.length === 0) return;
@@ -437,10 +439,10 @@ export default function App() {
   };
 
   const resetAllFilters = () => {
-    setTypeFilter("wszystkie"); setPlaceFilter("wszystkie");
-    setCompFilter("wszystkie"); setTopicFilter("wszystkie");
-    setAgeFilter("wszystkie"); setMoodFilter("wszystkie");
-    setMethodFilter("wszystkie"); setPrepFilter("wszystkie");
+    setTypeFilters([]); setPlaceFilters([]);
+    setCompFilters([]); setTopicFilters([]);
+    setAgeFilters([]); setMoodFilters([]);
+    setMethodFilters([]); setPrepFilters([]);
     setSearchQuery(""); setShowFavoritesOnly(false); setShowCompletedOnly(false);
   };
 
@@ -471,12 +473,12 @@ export default function App() {
     setShowProposals(false);
   };
 
-  const filterKey = [typeFilter, placeFilter, compFilter, topicFilter, ageFilter, moodFilter, methodFilter, prepFilter, searchQuery, sortBy, showFavoritesOnly, showCompletedOnly].join("|");
+  const filterKey = [typeFilters.join(","), placeFilters.join(","), compFilters.join(","), topicFilters.join(","), ageFilters.join(","), moodFilters.join(","), methodFilters.join(","), prepFilters.join(","), searchQuery, sortBy, showFavoritesOnly, showCompletedOnly].join("|");
 
-  const hasAnyFilter = typeFilter !== "wszystkie" || placeFilter !== "wszystkie" ||
-    compFilter !== "wszystkie" || topicFilter !== "wszystkie" ||
-    ageFilter !== "wszystkie" || moodFilter !== "wszystkie" ||
-    methodFilter !== "wszystkie" || prepFilter !== "wszystkie" || searchQuery.trim() !== "" ||
+  const hasAnyFilter = typeFilters.length > 0 || placeFilters.length > 0 ||
+    compFilters.length > 0 || topicFilters.length > 0 ||
+    ageFilters.length > 0 || moodFilters.length > 0 ||
+    methodFilters.length > 0 || prepFilters.length > 0 || searchQuery.trim() !== "" ||
     showFavoritesOnly || showCompletedOnly;
 
   useEffect(() => {
@@ -677,13 +679,13 @@ export default function App() {
           </div>
 
           <FilterBar
-            typeFilter={typeFilter} placeFilter={placeFilter} compFilter={compFilter}
-            topicFilter={topicFilter} ageFilter={ageFilter} moodFilter={moodFilter}
-            methodFilter={methodFilter} prepFilter={prepFilter}
-            onTypeChange={setTypeFilter} onPlaceChange={setPlaceFilter}
-            onCompChange={setCompFilter} onTopicChange={setTopicFilter}
-            onAgeChange={setAgeFilter} onMoodChange={setMoodFilter}
-            onMethodChange={setMethodFilter} onPrepChange={setPrepFilter}
+            typeFilters={typeFilters} placeFilters={placeFilters} compFilters={compFilters}
+            topicFilters={topicFilters} ageFilters={ageFilters} moodFilters={moodFilters}
+            methodFilters={methodFilters} prepFilters={prepFilters}
+            onTypeChange={setTypeFilters} onPlaceChange={setPlaceFilters}
+            onCompChange={setCompFilters} onTopicChange={setTopicFilters}
+            onAgeChange={setAgeFilters} onMoodChange={setMoodFilters}
+            onMethodChange={setMethodFilters} onPrepChange={setPrepFilters}
             darkMode={darkMode} activities={ACTIVITIES}
           />
 

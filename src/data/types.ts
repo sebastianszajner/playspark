@@ -8,7 +8,8 @@ export type ActivityType =
   | "budowanie"
   | "obserwacja"
   | "poznawcze"
-  | "hotwheels";
+  | "hotwheels"
+  | "relaks";
 
 export type Place = "dom" | "park" | "podróż" | "restauracja" | "poczekalnia";
 
@@ -41,7 +42,10 @@ export type Competency =
   | "uważność"
   | "rozpoznawanie emocji"
   | "liczenie"
-  | "szacowanie";
+  | "szacowanie"
+  | "regulacja emocji"
+  | "oddychanie"
+  | "relaksacja";
 
 export type Topic =
   | "zwierzęta"
@@ -67,7 +71,8 @@ export type Method =
   | "laban"
   | "orff"
   | "sherborne"
-  | "klasyczna";
+  | "klasyczna"
+  | "mindfulness";
 
 export type SortOption = "name" | "age-asc" | "age-desc" | "type" | "duration";
 
@@ -114,6 +119,7 @@ export const TYPE_META: Record<ActivityType, TypeMeta> = {
   obserwacja: { bg: "#F0FDF4", accent: "#10B981", icon: "eye" },
   poznawcze: { bg: "#FFF7ED", accent: "#EA580C", icon: "brain" },
   hotwheels: { bg: "#FFE4E8", accent: "#E11D48", icon: "car" },
+  relaks: { bg: "#E0F7F4", accent: "#0D9488", icon: "leaf" },
 };
 
 export const METHOD_META: Record<Method, { label: string; color: string; description: string }> = {
@@ -123,6 +129,7 @@ export const METHOD_META: Record<Method, { label: string; color: string; descrip
   orff: { label: "Orff", color: "#F59E0B", description: "Muzyka i rytm jako ekspresja" },
   sherborne: { label: "Sherborne", color: "#22C55E", description: "Relacja przez ruch i dotyk" },
   klasyczna: { label: "Klasyczna", color: "#64748B", description: "Sprawdzone zabawy tradycyjne" },
+  mindfulness: { label: "Mindfulness", color: "#0D9488", description: "Uważność i regulacja emocji" },
 };
 
 export const PLACE_ICONS: Record<Place, string> = {
@@ -152,6 +159,8 @@ export const MOOD_FILTERS = [
   { id: "odwaga", label: "odwaga" },
   { id: "flow", label: "flow" },
   { id: "duma", label: "duma" },
+  { id: "spokój", label: "spokój" },
+  { id: "wyciszenie", label: "wyciszenie" },
 ];
 
 export const MOOD_ICONS: Record<string, string> = {
@@ -163,6 +172,8 @@ export const MOOD_ICONS: Record<string, string> = {
   "odwaga": "💪",
   "flow": "🌊",
   "duma": "🏆",
+  "spokój": "🌙",
+  "wyciszenie": "🌿",
 };
 
 export const ALL_TYPES: ActivityType[] = [
@@ -176,6 +187,7 @@ export const ALL_TYPES: ActivityType[] = [
   "obserwacja",
   "poznawcze",
   "hotwheels",
+  "relaks",
 ];
 
 export const ALL_PLACES: Place[] = [
@@ -193,6 +205,7 @@ export const ALL_METHODS: Method[] = [
   "orff",
   "sherborne",
   "klasyczna",
+  "mindfulness",
 ];
 
 export const FILTER_COMPETENCIES = [
@@ -215,6 +228,9 @@ export const FILTER_COMPETENCIES = [
   "samokontrola",
   "cierpliwość",
   "uważność",
+  "regulacja emocji",
+  "oddychanie",
+  "relaksacja",
 ];
 
 export const FILTER_TOPICS = [

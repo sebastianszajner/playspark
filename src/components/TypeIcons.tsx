@@ -170,6 +170,20 @@ export function IconHotwheels({ size, color = "#E11D48", className }: IconProps)
   );
 }
 
+// Leaf with calm wave — relaks
+export function IconRelaks({ size, color = "#0D9488", className }: IconProps) {
+  return (
+    <Svg size={size} className={className}>
+      <path d="M16 4C16 4 6 8 6 18C6 24 10 28 16 28C22 28 26 24 26 18C26 8 16 4 16 4Z" stroke={color} strokeWidth="2" strokeLinejoin="round" fill={color} fillOpacity="0.1" />
+      <path d="M16 4V28" stroke={color} strokeWidth="1.5" strokeLinecap="round" opacity="0.35" />
+      <path d="M10 16C12 14 14 15 16 13" stroke={color} strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
+      <path d="M10 20C12 18 14 19 16 17" stroke={color} strokeWidth="1.5" strokeLinecap="round" opacity="0.4" />
+      <circle cx="24" cy="8" r="1.2" fill={color} opacity="0.4" />
+      <circle cx="27" cy="11" r="0.8" fill={color} opacity="0.25" />
+    </Svg>
+  );
+}
+
 // Place icons
 export function IconDom({ size, color = "#666", className }: IconProps) {
   return (
@@ -238,6 +252,7 @@ const TYPE_ICON_MAP: Record<string, React.FC<IconProps>> = {
   obserwacja: IconObserwacja,
   poznawcze: IconPoznawcze,
   hotwheels: IconHotwheels,
+  relaks: IconRelaks,
 };
 
 const PLACE_ICON_MAP: Record<string, React.FC<IconProps>> = {

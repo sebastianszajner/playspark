@@ -4308,4 +4308,381 @@ export const ACTIVITIES: Activity[] = [
     ],
     tellChild: "Wyścig bez autek — tylko naszą wyobraźnią! Zamknij oczy. Nasze autka stoją na starcie w Monaco. Słyszysz silniki? Zaczynamy!"
   },
+  {
+    id: 121,
+    name: "Oddychanie bańką mydlaną",
+    type: "relaks",
+    place: ["dom", "park"],
+    competencies: ["uważność", "samokontrola", "regulacja emocji", "oddychanie"],
+    topics: ["codzienność", "emocje"],
+    age: [3, 4, 5, 6],
+    method: "mindfulness",
+    duration: "3-5 min",
+    description: "Dziecko uczy się świadomego oddechu przez wyobrażanie sobie (lub prawdziwego) dmuchania bańki mydlanej. Wdech przez nos, długi wydech przez usta — 'dmuchamy bańkę'. Prosta technika regulacji układu nerwowego dostępna dla 3-latka.",
+    childNeeds: {
+      why: "Świadome, powolne oddychanie aktywuje układ przywspółczulny i uspokaja reakcję stresową. Dla dzieci 3-6 lat obraz bańki mydlanej to konkretny, zabawny cel, który pomaga skupić się na oddechu i wyciszyć po trudnych emocjach.",
+      goals: [
+        "Nauka świadomego, powolnego oddechu",
+        "Regulacja emocji przez fizjologię",
+        "Budowanie techniki samouspokojenia na całe życie"
+      ],
+      emotions: ["spokój", "skupienie", "wyciszenie"]
+    },
+    steps: [
+      "Usiądź wygodnie z dzieckiem i powiedz: 'Zagramy w bańki oddechowe!'",
+      "Pokaż: wdech powoli przez nos (liczymy do 3), krótka pauza.",
+      "Wydech wolniutko przez usta — 'dmuchamy bańkę' (liczymy do 5).",
+      "Powtórzcie razem 5 razy. Możesz dorzucić prawdziwe bańki mydlane — dziecko zobaczy efekt."
+    ],
+    tip: "Dla 3-latków zacznij od 3 oddechów. Możesz użyć słomki do wizualizacji. Przy bardzo rozbudzonym dziecku zrób to w pozycji leżącej.",
+    whyItWorks: "Wydech dłuższy od wdechu stymuluje nerw błędny i spowalnia tętno (Porges, teoria poliwagalna). Fizyczne dmuchanie bańki jest dla dziecka konkretnym, motywującym celem — nie tylko ćwiczeniem.",
+    prep: ["zero prep"],
+    phrases: [
+      "Bierzemy powoli powietrze przez nosek...",
+      "A teraz dmuchamy baaardzo wolno, żeby bańka była ogromna!",
+      "Czujesz, jak brzuszek rośnie przy wdechu?",
+      "Piękna bańka! Zróbmy jeszcze jedną."
+    ],
+    tellChild: "Chcesz zobaczyć, jak zrobić magiczną bańkę powietrzem? Musisz oddychać bardzo, bardzo wolno — wtedy bańka wychodzi największa!"
+  },
+  {
+    id: 122,
+    name: "Skanowanie ciała",
+    type: "relaks",
+    place: ["dom"],
+    competencies: ["uważność", "sensoryka", "koncentracja", "relaksacja"],
+    topics: ["codzienność", "emocje"],
+    age: [4, 5, 6, 7],
+    method: "mindfulness",
+    duration: "5-8 min",
+    description: "Dziecko leży i powoli 'wędruje' uwagą po całym ciele — od stóp do głowy. Pyta siebie: 'Co czuje moja stopka? Kolano? Brzuszek?' Uczy rozpoznawania sygnałów płynących z ciała i świadomego rozluźniania napięć.",
+    childNeeds: {
+      why: "Dzieci często nie są świadome napięcia fizycznego, które niosą ze sobą. Skanowanie ciała uczy propriocepcji i interocepcji — zdolności słuchania własnego ciała. Badania Williams i Penman (2011) pokazują, że regularne ćwiczenie tej uważności zmniejsza poziom lęku u dzieci.",
+      goals: [
+        "Rozwijanie świadomości własnego ciała",
+        "Rozluźnianie napięcia mięśniowego",
+        "Budowanie połączenia między emocjami a odczuciami fizycznymi"
+      ],
+      emotions: ["spokój", "wyciszenie", "skupienie"]
+    },
+    steps: [
+      "Połóżcie się razem na dywanie lub w łóżku. Zamknijcie oczy.",
+      "Mówisz spokojnym głosem: 'Zacznijmy od stópek. Co czuje twoja prawa stopka? Ciepło? Mrowienie?'",
+      "Wędrujcie powoli w górę: kostkę, łydkę, kolano, udo, brzuszek, ręce, ramiona, szyję, twarz.",
+      "Na końcu: 'Poczuj całe swoje ciało jednocześnie. Jesteś miękki jak poduszka.'"
+    ],
+    tip: "Mów wolno, rób pauzy. Dla młodszych dzieci wystarczy 5 części ciała. Możesz nagrać swój głos i odtwarzać dziecku przed snem.",
+    whyItWorks: "Body scan to technika z programu MBSR (Kabat-Zinn, 1990). U dzieci w wieku 4-7 lat regularne stosowanie zmniejsza reaktywność emocjonalną i poprawia jakość snu.",
+    prep: ["zero prep"],
+    phrases: [
+      "Co czuje twoja stopka? Ciepło? Mrowienie? Nic?",
+      "Teraz idziemy wyżej... do kolanka...",
+      "Brzuszek rośnie przy wdechu i maleje przy wydechu...",
+      "Jesteś miękki jak puszysta chmurka."
+    ],
+    tellChild: "Zagramy w grę uważności — zbadamy razem Twoje ciało, od paluszków u stóp aż po czubek głowy. Połóż się wygodnie i zamknij oczka."
+  },
+  {
+    id: 123,
+    name: "Słuchanie ciszy",
+    type: "relaks",
+    place: ["dom", "park"],
+    competencies: ["uważność", "koncentracja", "słuchanie"],
+    topics: ["natura", "codzienność"],
+    age: [4, 5, 6, 7],
+    method: "mindfulness",
+    duration: "3-5 min",
+    description: "Minuta kompletnej ciszy — dziecko siedzi nieruchomo i liczy, ile różnych dźwięków słyszy. To ćwiczenie uważności słuchowej, które uspokaja i wyostrza zmysły. Zwykle 'cisza' okazuje się pełna odgłosów.",
+    childNeeds: {
+      why: "Dzieci żyją w stałym hałasie bodźców. Świadome słuchanie ciszy ćwiczy selektywną uwagę i uczy, że spokój nie jest nudą — jest odkryciem. Montessori nazywała takie ćwiczenie 'lekcją ciszy' i uważała je za fundament koncentracji.",
+      goals: [
+        "Rozwijanie selektywnej uwagi słuchowej",
+        "Doświadczenie spokoju bez rozrywki",
+        "Odkrywanie bogatości otoczenia dźwiękowego"
+      ],
+      emotions: ["spokój", "skupienie", "wyciszenie"]
+    },
+    steps: [
+      "Usiądźcie w wygodnej pozycji. Powiedz: 'Będziemy teraz słuchać ciszy przez 1 minutę.'",
+      "Ustaw timer na 1 minutę. Powiedzcie razem: 'Start!' i siedźcie w ciszy.",
+      "Po czasie zapytaj: 'Ile dźwięków usłyszałeś? Co to było?'",
+      "Porozmawiajcie o odkryciach — wiatr, lodówka, oddech, ptaki."
+    ],
+    tip: "Zacznij od 30 sekund dla 4-latka. Nie mów, że to będzie łatwe — dla wielu dzieci minuta ciszy to prawdziwe wyzwanie, które sprawia dużą satysfakcję.",
+    whyItWorks: "Lekcja ciszy Montessori (Montessori, 1912) uczy samodyscypliny i uwagi. Badania nad quiet time w szkołach pokazują poprawę koncentracji i redukcję impulsywności po regularnym ćwiczeniu.",
+    prep: ["zero prep"],
+    phrases: [
+      "Shhhh... słuchamy...",
+      "Ile dźwięków uda Ci się policzyć?",
+      "Co usłyszałeś? Coś cię zaskoczyło?",
+      "Brawo — udało się! Cisza jest pełna tajemnic, prawda?"
+    ],
+    tellChild: "Wiesz, że cisza nie jest naprawdę cicha? Za chwilę to sprawdzimy. Zamknij oczy i licz, ile dźwięków usłyszysz w ciągu 1 minuty. Gotowy?"
+  },
+  {
+    id: 124,
+    name: "Kamień na brzuchu",
+    type: "relaks",
+    place: ["dom"],
+    competencies: ["uważność", "oddychanie", "relaksacja", "koncentracja"],
+    topics: ["codzienność", "emocje"],
+    age: [3, 4, 5, 6],
+    method: "mindfulness",
+    duration: "3-5 min",
+    description: "Dziecko leży na plecach z maskotką lub małym kamykiem na brzuchu. Obserwuje, jak przedmiot unosi się i opada przy każdym oddechu. To wizualna i dotykowa kotwica, która uczy głębokiego oddychania przeponowego.",
+    childNeeds: {
+      why: "Dzieci w wieku 3-6 lat uczą się przez konkretne doznania. Obserwowanie ruchu maskotki przy oddechu jest doskonałą biofeedback metodą — dziecko natychmiast widzi efekt swojego oddechu. To robi oddychanie przeponowe bardziej dostępnym niż werbalne instrukcje.",
+      goals: [
+        "Nauka oddychania przeponowego (brzusznego)",
+        "Rozluźnienie ciała przez świadomy oddech",
+        "Budowanie spokojnej rutyny przed snem"
+      ],
+      emotions: ["spokój", "wyciszenie", "bliskość"]
+    },
+    steps: [
+      "Połóżcie się razem na podłodze lub łóżku. Dziecko kładzie maskotkę na brzuchu.",
+      "Powiedz: 'Twoja maskotka śpi na brzuszku. Będziesz ją kołysać oddechem.'",
+      "Dziecko oddycha spokojnie — maskotka unosi się (wdech) i opada (wydech).",
+      "Liczycie razem: 'Hej do góry! Hej na dół!' przez 5-10 oddechów."
+    ],
+    tip: "Maskotka sprawdza się lepiej niż kamień dla 3-4-latków. Dla starszych dzieci prawdziwy kamień (gładki, nieduży) dodaje pięknego elementu sensorycznego.",
+    whyItWorks: "Oddychanie przeponowe aktywuje nerw błędny i redukuje kortyzol. Zabawa z maskotką usuwa barierę poznawczą — dziecko skupia się na 'kołysaniu misia', nie na 'ćwiczeniu oddechu'.",
+    prep: ["maskotka lub mały kamień (opcjonalnie)"],
+    phrases: [
+      "Połóż misia na brzuszku. Teraz go ukołyszemy oddechem.",
+      "Wdech — miś jedzie w górę! Wydech — miś jedzie na dół.",
+      "Pięknie! Twój miś śpi spokojnie na Twoim brzuszku.",
+      "Poczuj, jak Twój brzuszek jest ciepły i spokojny."
+    ],
+    tellChild: "Twoja maskotka chce się pokołysać! Połóż ją na brzuszku i pokaż mi, jak ją kołyszesz swoim oddechem — wdech w górę, wydech w dół."
+  },
+  {
+    id: 125,
+    name: "Kolorowe oddychanie",
+    type: "relaks",
+    place: ["dom", "podróż", "poczekalnia"],
+    competencies: ["uważność", "wyobraźnia", "regulacja emocji", "oddychanie"],
+    topics: ["emocje", "kolory", "fantazja"],
+    age: [4, 5, 6, 7],
+    method: "mindfulness",
+    duration: "3-5 min",
+    description: "Dziecko wyobraża sobie, że wdycha swój ulubiony kolor — piękny, kolorowy, ciepły — a wydycha szary dym, który zabiera wszystkie złe uczucia. Prosta wizualizacja, która pomaga przekształcić emocje w obraz i je puścić.",
+    childNeeds: {
+      why: "Dzieci w wieku 4-7 lat myślą obrazami. Kolorowe oddychanie daje emocjom formę — coś konkretnego do 'oddania'. Wizualizacja podczas oddechu angażuje wyobraźnię i odciąga uwagę od ruminacji emocjonalnej, jednocześnie regulując układ nerwowy.",
+      goals: [
+        "Regulacja emocji przez wizualizację",
+        "Nauka uwalniania trudnych uczuć",
+        "Rozwijanie wyobraźni jako narzędzia samopomocy"
+      ],
+      emotions: ["spokój", "wyciszenie", "skupienie"]
+    },
+    steps: [
+      "Zapytaj: 'Jaki jest Twój ulubiony kolor? Ten, który sprawia, że czujesz się dobrze?'",
+      "Powiedz: 'Teraz wdychamy ten piękny kolor. Wyobraź sobie, że powietrze ma kolor [np. niebieski].'",
+      "Wdech przez nos — 'Piękny niebieski kolor wchodzi do środka...'",
+      "Wydech przez usta — 'Szary dym wychodzi... unosi złe uczucia...'",
+      "Powtarzajcie 5 razy. Po zakończeniu zapytaj: 'Jak się teraz czujesz?'"
+    ],
+    tip: "Pozwól dziecku wybrać inny kolor dla różnych nastrojów. Dzieci często wracają do tej techniki spontanicznie — naucz je używać jej samodzielnie.",
+    whyItWorks: "Technika kolorowego oddechu łączy oddychanie przeponowe z wizualizacją kierowaną. Badania Bourne (2010) nad terapią lęku u dzieci potwierdzają skuteczność kolorowych wizualizacji w redukcji napięcia.",
+    prep: ["zero prep"],
+    phrases: [
+      "Jaki kolor daje Ci spokój? Może niebieski? Żółty?",
+      "Wdychamy piękny [kolor]... czujesz go w środku?",
+      "Wydychamy szary dym... złe uczucia odlatują...",
+      "Teraz masz w środku pełno [kolor] spokoju!"
+    ],
+    tellChild: "Chcesz, żebym pokazała Ci magiczną technikę? Możesz wdychać swój ulubiony kolor i wydychać to, co Cię niepokoi. Jaki kolor wyberiesz?"
+  },
+  {
+    id: 126,
+    name: "Joga zwierząt",
+    type: "relaks",
+    place: ["dom", "park"],
+    competencies: ["relaksacja", "równowaga", "koncentracja", "ekspresja ciała", "uważność"],
+    topics: ["zwierzęta", "natura", "codzienność"],
+    age: [3, 4, 5, 6],
+    method: "mindfulness",
+    duration: "5-10 min",
+    description: "Dziecko wchodzi w pozy ciała inspirowane zwierzętami — kot (wygina grzbiet), pies (pozycja z głową w dół), drzewo (stoi na jednej nodze). Każda poza ma opis i oddech. Joga zwierząt łączy ruch, wyobraźnię i wyciszenie.",
+    childNeeds: {
+      why: "Joga adaptowana dla dzieci 3-6 lat łączy ruch fizyczny (który zaspokaja potrzebę aktywności) z uważnością i oddechem (który reguluje pobudzenie). Pozy zwierzęce są bardziej dostępne kognitywnie niż abstrakcyjne nazwy jogi. Badania Khalsa (2004) potwierdzają redukcję lęku u dzieci po jodze.",
+      goals: [
+        "Rozciąganie i rozluźnianie ciała",
+        "Rozwijanie równowagi i świadomości ciała",
+        "Wyciszenie przez połączenie ruchu z oddechem"
+      ],
+      emotions: ["spokój", "skupienie", "radość"]
+    },
+    steps: [
+      "Zacznijcie od 'poza kota': czworakujcie na dywanie, wyginajcie grzbiet w górę (wydech) i w dół (wdech).",
+      "Poza psa: z czworakowania wyprostuj nogi i ręce — tyłek w górę, głowa w dół. Oddychaj 3 razy.",
+      "Poza drzewa: stań na jednej nodze, drugą zegnij, ręce w górę jak gałęzie. Spróbuj stać 10 sekund.",
+      "Poza żółwia: usiądź z nogami skrzyżowanymi, pochyl się do przodu — 'żółw chowa się w skorupie'.",
+      "Zakończcie pozą gwiazdy: leżenie na plecach, ręce i nogi rozłożone, pełen oddech."
+    ],
+    tip: "Nie poprawiaj 'idealności' pozy — liczy się próba i oddech. Dla 3-latków wystarczą 2-3 pozy. Możesz wydawać dźwięki zwierząt przy każdej pozie — dzieci uwielbiają to.",
+    whyItWorks: "Joga dla dzieci łączy propriocepcję, równowagę i regulację oddechu. Pozycja 'gwiazdy' (savasana) indukuje stan relaksu układu nerwowego — jest to fizjologicznie zbliżone do medytacji.",
+    prep: ["zero prep"],
+    phrases: [
+      "Jesteśmy kotem — wyginamy grzbiet jak prawdziwy kotek!",
+      "Teraz jesteśmy drzewem — stoimy mocno jak dąb w wietrze...",
+      "Żółwik chowa się w skorupce... bezpieczny i spokojny...",
+      "Na koniec — gwiazda! Leżymy i świecimy!"
+    ],
+    tellChild: "Chcesz być przez chwilę różnymi zwierzętami? Zagramy w jogę zwierząt — będziemy kotem, psem, drzewem i żółwiem. Zaczynamy od kota!"
+  },
+  {
+    id: 127,
+    name: "Palce wdzięczności",
+    type: "relaks",
+    place: ["dom", "podróż", "poczekalnia"],
+    competencies: ["uważność", "komunikacja", "regulacja emocji", "rozpoznawanie emocji"],
+    topics: ["emocje", "codzienność", "fantazja"],
+    age: [4, 5, 6, 7],
+    method: "mindfulness",
+    duration: "3-5 min",
+    description: "Dziecko liczy na palcach 5 rzeczy, za które jest wdzięczne — jedna rzecz na jeden palec. Każda jest inna: coś, co je zaskoczyło, coś miłego, coś z natury, ktoś bliski, coś małego. Prosta rytualna praktyka budowania pozytywnego nastawienia.",
+    childNeeds: {
+      why: "Wdzięczność to trening mózgu w kierunku pozytywności. Badania Emmons i McCullough (2003) pokazują, że regularne praktykowanie wdzięczności zwiększa dobrostan emocjonalny i redukuje depresję. Dla dzieci konkretna forma 5 palców jest łatwa do zapamiętania i samodzielnego stosowania.",
+      goals: [
+        "Rozwijanie nawyku dostrzegania dobra w codzienności",
+        "Regulacja emocji przez skupienie na pozytywach",
+        "Budowanie słownictwa emocjonalnego i refleksji"
+      ],
+      emotions: ["spokój", "radość", "duma"]
+    },
+    steps: [
+      "Usiądźcie razem. Powiedz: 'Pokażemy na palcach 5 rzeczy, za które dziś jesteśmy wdzięczni.'",
+      "Kciuk: 'Za co dziś jesteś wdzięczny? Coś, co Cię uszczęśliwiło?'",
+      "Wskazujący: 'Coś, co Cię zaskoczyło w dobrym sensie.'",
+      "Środkowy: 'Ktoś, kto był dla Ciebie miły.' Serdeczny: 'Coś pięknego, co widziałeś.' Mały: 'Coś małego, czego zwykle nie zauważasz.'",
+      "Podzielcie się odpowiedziami. Rodzic też wymienia swoje 5!"
+    ],
+    tip: "Świetna rutyna na koniec dnia — przy kąpieli lub przed snem. Nie naciskaj na 'dobre' odpowiedzi — każda wdzięczność jest ważna, nawet 'za chipsy'.",
+    whyItWorks: "Praktyka wdzięczności aktywuje układ nagrody w mózgu i zwiększa produkcję dopaminy i serotoniny. Forma 5 palców czyni ją dostępną dla dzieci poniżej 7. roku życia, które potrzebują konkretnej struktury.",
+    prep: ["zero prep"],
+    phrases: [
+      "Kciuk — co Cię dziś uszczęśliwiło?",
+      "A co Cię zaskoczyło w dobry sposób?",
+      "Kto był dla Ciebie miły? Powiedz mi kto i dlaczego.",
+      "I małuszek — co małego, co zwykle nie zauważasz, byłoby miłe?"
+    ],
+    tellChild: "Policzymy razem na palcach 5 dobrych rzeczy z dzisiaj. Każdy palec to jedna rzecz. Zaczynamy od kciuka — co Cię dziś ucieszyło?"
+  },
+  {
+    id: 128,
+    name: "Marsz w zwolnionym tempie",
+    type: "relaks",
+    place: ["dom", "park"],
+    competencies: ["uważność", "koncentracja", "równowaga", "samokontrola"],
+    topics: ["codzienność", "natura"],
+    age: [4, 5, 6, 7],
+    method: "mindfulness",
+    duration: "5-8 min",
+    description: "Dziecko chodzi tak wolno, jak to możliwe — jak w zwolnionym filmie. Skupia całą uwagę na każdym kroku: jak pięta dotyka podłogi, jak ciężar przenosi się na palce. To ćwiczenie uważności ciała i samokontroli.",
+    childNeeds: {
+      why: "Marsz uważności (mindful walking) przenosi uwagę z myśli na ciało. Dla dzieci, które mają trudność z zatrzymaniem się, spowolnienie ruchu jest zarówno ćwiczeniem samokontroli, jak i naturalnym wyciszaczem. Badania Thich Nhat Hanha (1991) dotyczące chodzenia w uważności potwierdzają jego skuteczność w redukcji reaktywności.",
+      goals: [
+        "Rozwijanie samokontroli i świadomości ciała",
+        "Ćwiczenie uważności w ruchu",
+        "Nauka skupiania się na chwili obecnej"
+      ],
+      emotions: ["spokój", "skupienie", "wyciszenie"]
+    },
+    steps: [
+      "Wytyczcie trasę — może być korytarz w domu lub ścieżka w parku.",
+      "Powiedz: 'Teraz chodzimy TAK wolno, jak możemy. Jak ślimak. Jak astronauta na Księżycu.'",
+      "Skupcie się na stopach: 'Czujesz, jak pięta dotyka podłogi? A teraz cała stopa? Palce?'",
+      "Przejdźcie trasę w obie strony w ciszy. Możecie dodać: 'Wdech przy lewej nodze, wydech przy prawej.'"
+    ],
+    tip: "Jeśli dziecko zaczyna się śmiać lub przyspiesza — to normalne. Zaproś je z powrotem: 'Spokojnie, jak ślimak. Kto jest wolniejszy od ślimaka?' Gra w wolność działa lepiej niż komenda.",
+    whyItWorks: "Chodzenie w zwolnionym tempie angażuje móżdżek i płaty czołowe odpowiedzialne za kontrolę hamowania. Regularnie ćwiczone poprawia impulsywność i zdolność do samoregulacji u dzieci w wieku przedszkolnym.",
+    prep: ["zero prep"],
+    phrases: [
+      "Spowolnij... spowolnij... jesteś teraz ślimakiem...",
+      "Co czujesz w stopce? Podłoga ciepła czy zimna?",
+      "Lewa noga... prawa noga... bardzo wolno...",
+      "Brawo — to trudniejsze niż bieganie, prawda?"
+    ],
+    tellChild: "Mam dla Ciebie super wyzwanie — musisz iść TAK wolno, żeby żółw Cię nie wyprzedził. Pokaż mi, jak chodzi astronauta na Księżycu. Zaczynamy!"
+  },
+  {
+    id: 129,
+    name: "Bańka emocji",
+    type: "relaks",
+    place: ["dom", "podróż", "poczekalnia"],
+    competencies: ["regulacja emocji", "wyobraźnia", "uważność", "rozpoznawanie emocji"],
+    topics: ["emocje", "fantazja"],
+    age: [4, 5, 6, 7],
+    method: "mindfulness",
+    duration: "3-5 min",
+    description: "Dziecko wyobraża sobie trudną emocję — złość, strach, smutek — jako kolorową bańkę mydlaną. Patrzy na nią, nadaje jej kolor i wielkość, a potem głęboko dmucha, żeby bańka odleciała. To technika defuzji poznawczej dla dzieci.",
+    childNeeds: {
+      why: "Defuzja poznawcza (Hayes, ACT) polega na obserwowaniu emocji z dystansu zamiast bycia przez nie pochłoniętym. Dla dzieci wyobrażenie emocji jako bańki daje dystans i sprawczość — 'ja dmucham i ona odlatuje'. To uczy, że emocje są tymczasowe i nie definiują dziecka.",
+      goals: [
+        "Nauka obserwowania emocji z dystansu",
+        "Doświadczenie sprawczości w regulacji emocjonalnej",
+        "Rozwijanie języka emocji"
+      ],
+      emotions: ["spokój", "wyciszenie", "skupienie"]
+    },
+    steps: [
+      "Powiedz: 'Masz teraz jakieś trudne uczucie? Złość? Smutek? Strach?'",
+      "'Wyobraź sobie, że to uczucie to bańka mydlana. Jaki ma kolor? Jak jest duża?'",
+      "'Popatrz na nią chwilę. Ona jest obok Ciebie, nie w Tobie.'",
+      "Weź głęboki wdech przez nos i wolno wydmuchnij bańkę z ust.",
+      "'Patrz, jak bańka odlatuje... wyżej... dalej... aż znika w niebie.'"
+    ],
+    tip: "Nie mów 'złość jest zła'. Zamiast: 'Twoja złość jest jak bańka — możemy ją obejrzeć i puścić.' Jeśli dziecko nie chce puszczać bańki, zapytaj: 'Co chcesz z nią zrobić?'",
+    whyItWorks: "Technika inspirowana terapią ACT (Acceptance and Commitment Therapy). Wizualizacja emocji jako obiektu zewnętrznego zmniejsza intensywność reakcji emocjonalnej i uczy metapoznania — myślenia o własnych myślach i uczuciach.",
+    prep: ["zero prep"],
+    phrases: [
+      "Wyobraź sobie tę złość jako bańkę. Jaki ma kolor?",
+      "Popatrz na nią. Jest obok Ciebie — nie musisz jej trzymać.",
+      "Weź duży wdech... i delikatnie ją wydmuchnij...",
+      "Patrz, jak odlatuje! Wyżej... wyżej... już jej nie ma."
+    ],
+    tellChild: "Masz teraz jakieś trudne uczucie? Zamienimy je w bańkę mydlaną! Wyobraź sobie — jaki kolor ma Twoja złość? Dmuchamy razem i puszczamy ją w niebo."
+  },
+  {
+    id: 130,
+    name: "Masażyk deszczowy",
+    type: "relaks",
+    place: ["dom"],
+    competencies: ["relaksacja", "sensoryka", "bliskość", "uważność"],
+    topics: ["codzienność", "natura"],
+    age: [3, 4, 5, 6],
+    method: "mindfulness",
+    duration: "5-8 min",
+    description: "Rodzic delikatnie stuka palcami po plecach dziecka, naśladując różne rodzaje deszczu — mżawka, kapuśniaczek, ulewa, grad, słonko. Dziecko leży lub siedzi i odgaduje, jaki deszcz pada. Dotyk i uwaga rodzica są tu najważniejsze.",
+    childNeeds: {
+      why: "Dotyk rodzicielski aktywuje receptory sensoryczne skóry i uwalnia oksytocynę. Sherborne (1990) podkreślała, że kontakt dotykowy z opiekunem reguluje układ nerwowy dziecka i buduje poczucie bezpieczeństwa. Masaż plecków jest szczególnie skuteczny przed snem lub po trudnym dniu.",
+      goals: [
+        "Wyciszenie przez stymulację dotykową",
+        "Wzmocnienie więzi rodzic-dziecko",
+        "Regulacja układu nerwowego przez dotyk"
+      ],
+      emotions: ["bliskość", "spokój", "wyciszenie"]
+    },
+    steps: [
+      "Dziecko siedzi lub leży na brzuchu. Ty siadasz za nim lub obok.",
+      "Powiedz: 'Będę rysować deszcz na Twoich plecach — zgadniesz, jaki pada?'",
+      "Mżawka: delikatne stukanie opuszkami wszystkich palców, szybko i lekko.",
+      "Kapuśniaczek: powolne stukanie jednym palcem tu i tam, nieregularnie.",
+      "Ulewa: energiczne stukanie wszystkich palców naraz.",
+      "Grad: lekkie uderzanie nudeklami (zgięte palce) — klap-klap-klap.",
+      "Słonko: wolne, okrężne głaskanie całą dłonią — deszcz minął, jest ciepło."
+    ],
+    tip: "Zapytaj dziecko przed masażem, jak mocny dotyk lubi. Niektóre dzieci preferują delikatny, inne mocniejszy ucisk. Możesz też zamienić się rolami — dziecko masuje Twoje plecy.",
+    whyItWorks: "Lekki masaż pleców stymuluje receptory CT (C-tactile afferents) odpowiedzialne za przyjemny dotyk i wydzielanie oksytocyny. Badania Field (2010) potwierdzają, że 10 minut masażu redukuje kortyzol i poprawia nastrój u dzieci.",
+    prep: ["zero prep"],
+    phrases: [
+      "Pada deszcz... mżawka... deliutko, deliutko...",
+      "O, teraz kapuśniaczek! Kroplami, tu i tam...",
+      "Uwaga — zaczyna padać mocniej! Ulewa!",
+      "I teraz słonko wychodzi... ciepło, ciepło... deszcz minął."
+    ],
+    tellChild: "Zamknij oczy i poczuj deszcz na plecach! Będę stukać i musisz zgadnąć, jaki deszcz pada — mżawka, ulewa, a może grad? Gotowy/a?"
+  },
 ];

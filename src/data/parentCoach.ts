@@ -129,6 +129,18 @@ export const PARENT_COACH_DATA: Record<ActivityType, ParentCoachEntry> = {
     parentLearning: "Uczysz się wchodzić w narrację dziecka bez jej przejmowania — pytanie 'a co potem?' podtrzymuje historię bez narzucania kierunku.",
     evidence: "Zabawa symboliczna z figurkami i pojazdami to jeden z najsilniejszych predyktorów rozwoju języka i teorii umysłu u dzieci 3-7 lat.",
     evidenceSource: "Lillard et al., Psychological Bulletin meta-analiza 154 badań, 2013"
+  },
+  relaks: {
+    brainNetwork: "Układ przywspółczulny + kora przedczołowa",
+    brainNetworkDetail: "Ćwiczenia mindfulness i oddechowe aktywują nerw błędny i obniżają reaktywność ciała migdałowatego — centrum alarmowego mózgu. Dziecko uczy się przechodzić ze stanu 'walcz/uciekaj' do stanu spokoju przez świadomą regulację.",
+    coachingQuestions: [
+      "Jak się czujesz w środku teraz? Ciepło, zimno, lekko, ciężko?",
+      "Co pomogło Ci się uspokoić — oddech, ruch, coś innego?",
+      "Gdzie w ciele czujesz spokój? Pokaż mi to miejsce."
+    ],
+    parentLearning: "Uczysz się regulować własny układ nerwowy razem z dzieckiem — nie za dziecko. Twój spokój jest biologicznym sygnałem bezpieczeństwa dla mózgu dziecka (koregulacja).",
+    evidence: "Mindfulness-based programy dla dzieci w wieku przedszkolnym zmniejszają reaktywność emocjonalną o 32% i poprawiają zdolność do samoregulacji według meta-analizy 37 badań.",
+    evidenceSource: "Zoogman et al., Mindfulness 2015; Porges, Polyvagal Theory 2011"
   }
 };
 
@@ -147,6 +159,7 @@ export const PARENT_PROFILES: Record<ActivityType, { emoji: string; label: strin
   zgadywanka: { emoji: "🔍", label: "Detektyw Zabawy", desc: "Ćwiczysz logikę i kategoryzację przez ciekawość." },
   obserwacja: { emoji: "🌿", label: "Uważny Odkrywca", desc: "Budujesz koncentrację i uważność — razem z dzieckiem." },
   hotwheels: { emoji: "🚗", label: "Narrator na Torze", desc: "Zamieniasz zabawki w scenę narracyjną — świetny fundament języka." },
+  relaks: { emoji: "🌿", label: "Mistrz Wyciszenia", desc: "Uczysz dziecko regulacji emocji i świadomego oddechu — umiejętności na całe życie." },
 };
 
 export const WEEKLY_INSIGHTS = [
